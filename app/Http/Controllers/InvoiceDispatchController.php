@@ -20,8 +20,8 @@ class InvoiceDispatchController extends Controller
         $this->validate($request, [
             'channels' => [
                 'array', 'required',
-                Rule::in(Invoice::$channels)
-            ]
+                Rule::in(Invoice::$channels),
+            ],
         ]);
 
         $invoice->send($request->input('channels'));

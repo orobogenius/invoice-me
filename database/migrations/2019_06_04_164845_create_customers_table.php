@@ -22,7 +22,7 @@ class CreateCustomersTable extends Migration
             $table->string('whatsapp_number', 20)->nullable();
             $table->string('fb_username', 50)->nullable();
             $table->timestamps();
-            
+
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }

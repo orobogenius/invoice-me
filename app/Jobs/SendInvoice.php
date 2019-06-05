@@ -3,9 +3,9 @@
 namespace App\Jobs;
 
 use App\Invoice;
+use App\Services\SmsGateway;
 use Illuminate\Bus\Queueable;
 use App\Services\PaymentLinkGenerator;
-use App\Services\SmsGateway;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
@@ -27,7 +27,7 @@ class SendInvoice implements ShouldQueue
      *
      * @var  array
      */
-     protected $channels;
+    protected $channels;
 
     /**
      * Create a new job instance.
@@ -52,11 +52,11 @@ class SendInvoice implements ShouldQueue
         $link = app(PaymentLinkGenerator::class)->link($this->invoice);
 
         if (! $link) {
-          return;
+            return;
         }
-        
+
         foreach ($this->channels as $channel) {
-          $this->{'sendTo' . ucfirst($channel)}(
+            $this->{'sendTo'.ucfirst($channel)}(
             $this->invoice, $link
           );
         }
@@ -75,7 +75,7 @@ class SendInvoice implements ShouldQueue
 
         app(SmsGateway::class)->sendTo($customer, [
           'invoice_number' => $invoice->number,
-          'payment_link' => $paymentLink
+          'payment_link' => $paymentLink,
         ]);
     }
 }

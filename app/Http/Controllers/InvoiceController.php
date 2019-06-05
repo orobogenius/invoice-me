@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use Auth;
 use App\Invoice;
 use Illuminate\Support\Str;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Requests\StroreInvoiceRequest;
 
@@ -28,7 +27,7 @@ class InvoiceController extends Controller
      *
      * @param  \App\Invoice  $invoice
      * @return \Illuminate\Http\Response
-    */
+     */
     public function show(Invoice $invoice)
     {
         return view('invoice.show', $invoice);
@@ -65,7 +64,7 @@ class InvoiceController extends Controller
                 'reference' => $request->input('reference') ?: Str::random(10),
                 'customer_id' => $request->input('customer_id'),
                 'description' => $request->input('description'),
-                'due_date' => $request->input('due_date')
+                'due_date' => $request->input('due_date'),
             ]);
 
             $invoice->items()->createMany($request->input('line_items'));
@@ -75,7 +74,7 @@ class InvoiceController extends Controller
 
         if (! $invoice) {
             return response()->json([
-                'message' => 'Could not create invoice, please try again'
+                'message' => 'Could not create invoice, please try again',
             ], 500);
         }
 
