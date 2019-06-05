@@ -1,0 +1,35 @@
+version: '3'
+
+services:
+  app:
+    build:
+      context: ./docker/app
+      dockerfile: Dockerfile
+    image: invoiceme/app:latest
+    ports:
+      - '8080:80'
+    working_dir: /var/www/html
+    networks:
+      - invoicemenet
+    volumes:
+      - .:/var/www/html
+  database:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: secret
+      MYSQL_DATABASE: homestead
+      MYSQL_USER: homestead
+      MYSQL_PASSWORD: secret
+    ports:
+      - '3306:3306'
+    networks:
+      - invoicemenet
+    volumes:
+      - dbdata:/var/lib/mysql
+
+networks:
+  invoicemenet:
+    driver: bridge
+volumes:
+  dbdata:
+    driver: local

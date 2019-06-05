@@ -52,6 +52,15 @@ composer test
 
 To verify RavePay payment, you may setup a webhook url using [ngrok.io](https://ngrok.com/) and set the ```APP_URL``` in the env file to the ngrok tunnel.
 
+ ## 🐳 Dockerize
+ ### Spin up the containers
+ 
+```bash
+docker-compose up -d
+```
+
+- Visit http://localhost:8080 to see the app.
+
 ## 🤝 License
 
 MIT license (MIT) - Check out the [License File](LICENSE) for more.
