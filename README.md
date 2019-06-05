@@ -4,7 +4,7 @@
 <a href="https://codecov.io/gh/orobogenius/invoice-me">
   <img src="https://img.shields.io/codecov/c/github/orobogenius/invoice-me.svg?style=flat-square" />
 </a>
-<a href="https://styleci.io/repos/167356410" rel="nofollow"><img src="https://camo.githubusercontent.com/59d352dbd8a27e9c12057c37743c50e6777616fe/68747470733a2f2f7374796c6563692e696f2f7265706f732f3136343239323139362f736869656c64" data-canonical-src="https://styleci.io/repos/164292196/shield" style="max-width:100%;"></a>
+<a href="https://github.styleci.io/repos/190352202" rel="nofollow"><img src="https://camo.githubusercontent.com/59d352dbd8a27e9c12057c37743c50e6777616fe/68747470733a2f2f7374796c6563692e696f2f7265706f732f3136343239323139362f736869656c64" data-canonical-src="https://styleci.io/repos/190352202/shield" style="max-width:100%;"></a>
 ![Maintained](https://img.shields.io/maintenance/yes/2019.svg)
 
 Send personalized invoices to your customers and get paid faster.
