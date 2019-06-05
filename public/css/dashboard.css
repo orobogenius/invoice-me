@@ -1,0 +1,133 @@
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    margin: 0;
+}
+
+.dashboard {
+    font-family: 'Nunito';
+    display: flex;
+    min-height: 100%;
+    position: relative;
+}
+
+.dashboard__sidebar {
+    background-color: #1F2234;
+    width: 60px;
+    min-width: 60px;
+    border-right: 1px #5f6162 solid;
+    color: #ffffff !important;
+}
+
+.dashboard__content {
+    background-color: #272A41;
+    flex: 1 1 auto;
+    border-right: 1px #5f6162 solid;
+    display: flex;
+    flex-direction: column;
+    color: #C5C5C5;
+    min-height: 100%;
+}
+
+.dashboard__content .card {
+    background-color: #1F2234;
+    border: 0;
+    position: relative;
+    width: 100%;
+    box-shadow: 0 1px 20px 0 rgba(0, 0, 0, .1);
+    padding: 10px;
+}
+
+.sidebar__menu li {
+    margin-top: 10px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: border-left 0.7s;
+}
+
+.sidebar__menu i {
+    color: #A5A5A5;
+    font-size: 1.5em;
+}
+
+.sidebar__menu li.active,
+.sidebar__menu li:hover {
+    background: #151725;
+    border-left: 4px solid #0BD071;
+    border-radius: 0 5px 5px 0;
+}
+
+.sidebar__menu li.active i,
+.sidebar__menu li:hover i {
+    color: #0BD071 !important;
+}
+
+
+.page-name {
+    max-width: 250px;
+    height: 35px;
+    background-color: #1F2234;
+    border-radius: 0 50px 50px 0;
+    text-transform: uppercase;
+}
+
+
+.action-btn {
+    background-color: #0BD071;
+    border: none;
+    color: #1F2234;
+    font-weight: 700;
+    transition: all 0.7s;
+}
+
+.action-btn:hover {
+    transform: scale(1.05);
+    background-color: #08a057;
+    color: #1F2234;
+}
+
+thead {
+    background-color: #0BD071;
+    color: #1F2234;
+}
+
+th,
+td {
+    border: none !important;
+}
+
+tbody tr {
+    background-color: rgba(0, 0, 0, .075);
+    cursor: pointer;
+}
+
+tbody tr:hover {
+    background-color: #272A41 !important;
+}
+
+.form-control {
+    background-color: #272A41;
+    color: #ffffff !important;
+}
+
+.form-control:focus,
+.form-control:active {
+    background-color: #272A41;
+}
+
+.form-control[readonly] {
+    cursor: not-allowed;
+    color: #272A41 !important;
+}
+
+.form-control[readonly]:active,
+.form-control[readonly]:focus {
+    background-color: #e9ecef;
+}
