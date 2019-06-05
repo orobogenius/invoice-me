@@ -3,7 +3,6 @@
 namespace App;
 
 use Illuminate\Notifications\Notifiable;
-use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
@@ -37,9 +36,9 @@ class User extends Authenticatable
 
     /**
      * Get the user's customers.
-     * 
+     *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
-    */
+     */
     public function customers()
     {
         return $this->hasMany(Customer::class);
@@ -47,9 +46,9 @@ class User extends Authenticatable
 
     /**
      * Get the user's invoices.
-     * 
+     *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
-    */
+     */
     public function invoices()
     {
         return $this->hasMany(Invoice::class);

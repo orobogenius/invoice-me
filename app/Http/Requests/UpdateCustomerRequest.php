@@ -28,7 +28,7 @@ class UpdateCustomerRequest extends FormRequest
             'email' => 'email',
             'phone' => 'string|max:20',
             'whatsapp_number' => 'string|max:20',
-            'fb_username' => 'string|max:50'
+            'fb_username' => 'string|max:50',
         ];
     }
 }

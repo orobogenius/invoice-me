@@ -12,14 +12,14 @@ class PaymentLinkGenerator
      *
      * @var  \GuzzleHttp\Client
      */
-     protected $client;
+    protected $client;
 
-     /**
+    /**
      * Ravepay API URL.
      *
      * @var  string
      */
-     const API_URL = 'https://api.ravepay.co/flwv3-pug/getpaidx/api/v2/hosted/pay';
+    const API_URL = 'https://api.ravepay.co/flwv3-pug/getpaidx/api/v2/hosted/pay';
 
     /**
      * Create a new generator instance.
@@ -28,11 +28,11 @@ class PaymentLinkGenerator
      */
     public function __construct()
     {
-        $this->client = new Client([        
+        $this->client = new Client([
           'headers' => [
               'content-type' => 'application/json',
-              'cache-control' => 'no-cache'
-          ]
+              'cache-control' => 'no-cache',
+          ],
       ]);
     }
 
@@ -44,7 +44,7 @@ class PaymentLinkGenerator
      */
     public function link(Invoice $invoice)
     {
-      $response = $this->client->post(self::API_URL, [
+        $response = $this->client->post(self::API_URL, [
         'form_params' => [
           'amount' => $invoice->amount,
           'currency' => 'NGN',
@@ -52,17 +52,17 @@ class PaymentLinkGenerator
           'txref' => $invoice->reference,
           'PBFPubKey' => config('services.ravepay.pk'),
           'redirect_url' => route('invoices.view', $invoice->number),
-          'custom_title' => "Pay invoice ({$invoice->number}) for "  . config('app.name'),
+          'custom_title' => "Pay invoice ({$invoice->number}) for ".config('app.name'),
           'meta' => [
             ['metaname' => 'invoice_number', 'metavalue' => $invoice->number],
             ['metaname' => 'invoice_reference', 'metavalue' => $invoice->reference],
-            ['metaname' => 'customer', 'metavalue' => $invoice->customer->id]
-          ]
-        ]
+            ['metaname' => 'customer', 'metavalue' => $invoice->customer->id],
+          ],
+        ],
       ]);
 
-      $transaction = json_decode($response->getBody(), true);
+        $transaction = json_decode($response->getBody(), true);
 
-      return $transaction['data']['link'];
+        return $transaction['data']['link'];
     }
 }

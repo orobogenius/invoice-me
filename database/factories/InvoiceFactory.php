@@ -20,15 +20,15 @@ use Faker\Generator as Faker;
 
 $factory->define(Invoice::class, function (Faker $faker) {
     return [
-        'user_id' => function() {
-          return factory(User::class)->create()->id;
-         },
-        'customer_id' => function() {
-          return factory(Customer::class)->create()->id;
-         },
+        'user_id' => function () {
+            return factory(User::class)->create()->id;
+        },
+        'customer_id' => function () {
+            return factory(Customer::class)->create()->id;
+        },
         'number' => Str::random(10),
         'reference' => Str::random(10),
         'amount' => $this->faker->randomNumber(),
-        'description' => $this->faker->sentence()        
+        'description' => $this->faker->sentence(),
     ];
 });

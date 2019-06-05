@@ -36,8 +36,8 @@ class StroreInvoiceRequest extends FormRequest
             'line_items.*.amount' => 'sometimes|required|numeric',
             'channels' => [
                 'array',
-                Rule::in(Invoice::$channels)
-            ]
+                Rule::in(Invoice::$channels),
+            ],
         ];
     }
 }

@@ -4,12 +4,11 @@ namespace App\Http\Controllers;
 
 use Auth;
 use App\Customer;
-use Illuminate\Http\Request;
 use App\Http\Requests\StoreCustomerRequest;
 use App\Http\Requests\UpdateCustomerRequest;
 
 class CustomerController extends Controller
-{   
+{
     /**
      * Display a listing of the resource.
      *
@@ -39,11 +38,11 @@ class CustomerController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(StoreCustomerRequest $request)
-    {   
+    {
         $customer = Auth::user()->customers()->create($request->validated());
 
         session()->flash('message', 'Customer created successfully');
-        
+
         return redirect()->route('customers.index');
     }
 
@@ -57,7 +56,7 @@ class CustomerController extends Controller
     {
         return response()->json([
             'message' => 'Customer retrieved successfully',
-            'data' => $customer
+            'data' => $customer,
         ]);
     }
 
@@ -80,9 +79,9 @@ class CustomerController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(UpdateCustomerRequest $request, Customer $customer)
-    {   
+    {
         $customer->update($request->validated());
-        
+
         session()->flash('message', 'Customer updated successfully');
 
         return redirect()->route('customers.edit', $customer->id);

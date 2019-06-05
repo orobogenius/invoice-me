@@ -21,7 +21,7 @@ class CreateInvoiceItemsTable extends Migration
             $table->double('unit_price');
             $table->double('amount');
             $table->timestamps();
-            
+
             $table->foreign('invoice_id')->references('id')->on('invoices')->onDelete('cascade');
         });
     }

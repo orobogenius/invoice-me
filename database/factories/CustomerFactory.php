@@ -3,7 +3,6 @@
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 use App\User;
 use App\Customer;
-use Illuminate\Support\Str;
 use Faker\Generator as Faker;
 
 /*
@@ -19,13 +18,13 @@ use Faker\Generator as Faker;
 
 $factory->define(Customer::class, function (Faker $faker) {
     return [
-        'user_id' => function() {
+        'user_id' => function () {
             return factory(User::class)->create()->id;
-         },
+        },
         'name' => $faker->name,
         'email' => $faker->unique()->safeEmail,
         'phone' => $faker->e164PhoneNumber,
         'whatsapp_number' => $faker->e164PhoneNumber,
-        'fb_username' => $faker->userName
+        'fb_username' => $faker->userName,
     ];
 });
