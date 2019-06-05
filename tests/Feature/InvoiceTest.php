@@ -25,7 +25,7 @@ class InvoiceTest extends TestCase
         'channels' => ['phone'],
       ];
 
-      $this->mockPaymentLinkGeneratorForInvoice();
+        $this->mockPaymentLinkGeneratorForInvoice();
 
         $this->actingAs($this->user)
             ->post(route('invoices.store'), $data)
@@ -54,7 +54,7 @@ class InvoiceTest extends TestCase
         ];
 
         Queue::fake();
-        
+
         $this->mockPaymentLinkGeneratorForInvoice($invoice);
 
         $this->actingAs($this->user)
@@ -69,7 +69,7 @@ class InvoiceTest extends TestCase
     protected function mockPaymentLinkGeneratorForInvoice($invoice = null)
     {
         $this->mock(PaymentLinkGenerator::class, function ($mock) use ($invoice) {
-          $mock->shouldReceive('link')->once()->andReturn($this->faker->url);
-      });
+            $mock->shouldReceive('link')->once()->andReturn($this->faker->url);
+        });
     }
 }
