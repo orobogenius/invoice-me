@@ -19,24 +19,24 @@ class UserTest extends TestCase
             'remember_token' => Str::random(10),
             'account_number' => $this->faker->bankAccountNumber,
             'account_name' => $this->faker->name,
-            'bank_name' => $this->faker->word
+            'bank_name' => $this->faker->word,
         ];
-        
+
         $this->post(route('register'), $data)
             ->assertStatus(302)
             ->assertRedirect(route('dashboard'));
-        
+
         $this->assertDatabaseHas('users', collect($data)->only(['email', 'name'])->toArray());
     }
-    
+
     /** @test */
     public function it_can_login_user()
     {
         $data = [
            'email' => $this->user->email,
-           'password' => 'password'
+           'password' => 'password',
         ];
-        
+
         $this->post(route('login'), $data)
             ->assertStatus(302)
             ->assertRedirect(route('dashboard'));

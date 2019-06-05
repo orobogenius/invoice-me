@@ -53,5 +53,5 @@ return [
         'key' => env('NEXMO_KEY'),
         'secret' => env('NEXMO_SECRET'),
         'sender' => env('NEXMO_SENDER'),
-    ]
+    ],
 ];

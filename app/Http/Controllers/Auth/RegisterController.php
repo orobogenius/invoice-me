@@ -54,7 +54,7 @@ class RegisterController extends Controller
             'password' => ['required', 'string', 'min:8', 'confirmed'],
             'account_name' => 'string|required',
             'account_number' => 'numeric|required',
-            'bank_name' => 'string|required'
+            'bank_name' => 'string|required',
         ]);
     }
 

@@ -3,7 +3,6 @@
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 use App\Invoice;
 use App\InvoiceItem;
-use Illuminate\Support\Str;
 use Faker\Generator as Faker;
 
 /*
@@ -19,12 +18,12 @@ use Faker\Generator as Faker;
 
 $factory->define(InvoiceItem::class, function (Faker $faker) {
     return [
-        'invoice_id' => function() {
-          return factory(Invoice::class)->create()->id;
-         },
+        'invoice_id' => function () {
+            return factory(Invoice::class)->create()->id;
+        },
         'quantity' => $faker->randomDigit,
         'unit_price' => $this->faker->randomNumber(),
         'amount' => $this->faker->randomNumber(),
-        'description' => $this->faker->sentence()   
+        'description' => $this->faker->sentence(),
     ];
 });

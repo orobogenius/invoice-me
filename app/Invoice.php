@@ -20,7 +20,7 @@ class Invoice extends Model
      * @var array
      */
     public static $channels = [
-        'phone', 'whatsapp', 'email'
+        'phone', 'whatsapp', 'email',
     ];
 
     /**
@@ -29,24 +29,24 @@ class Invoice extends Model
      * @var array
      */
     protected $with = [
-        'customer', 'items'
+        'customer', 'items',
     ];
 
     /**
      * Get the line items of the invoice.
-     * 
+     *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
-    */
+     */
     public function items()
     {
         return $this->hasMany(InvoiceItem::class);
     }
 
     /**
-     * Get the customer who owns this invoice
-     * 
+     * Get the customer who owns this invoice.
+     *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
-    */
+     */
     public function customer()
     {
         return $this->belongsTo(Customer::class);

@@ -21,7 +21,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/dashboard', function () {
         return view('dashboard.index');
     })->name('dashboard');
-    
+
     Route::resource('invoices', 'InvoiceController');
     Route::resource('customers', 'CustomerController');
     Route::post('invoices/{invoice}/send', 'InvoiceDispatchController@store')->name('invoices.send');

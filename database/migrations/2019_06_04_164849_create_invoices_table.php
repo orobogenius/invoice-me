@@ -24,7 +24,7 @@ class CreateInvoicesTable extends Migration
             $table->date('due_date')->nullable();
             $table->string('status')->default('unpaid');
             $table->timestamps();
-            
+
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('customer_id')->references('id')->on('customers')->onDelete('cascade');
         });
