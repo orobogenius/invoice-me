@@ -78,9 +78,7 @@ class InvoiceController extends Controller
             ], 500);
         }
 
-        if ($request->has('send')) {
-            $invoice->send($request->input('channels'));
-        }
+        $invoice->send($request->input('channels'));
 
         session()->flash('message', 'Invoice created successfully');
 

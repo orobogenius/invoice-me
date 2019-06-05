@@ -91,9 +91,6 @@
                     <button type="submit" name="send" class="btn btn-primary action-btn">
                         <i class="fas fa-share"></i> Save and Send
                     </button>
-                    <button type="submit" name="save" class="btn btn-tertiary">
-                        <i class="fas fa-plus"></i> Save Only
-                    </button>
                 </div>
             </form>
         </div>

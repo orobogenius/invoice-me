@@ -23,7 +23,6 @@
                         <th scope="col">Amount</th>
                         <th scope="col">Customer</th>
                         <th scope="col">Status</th>
-                        <th scope="col">Action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -35,12 +34,6 @@
                             <td>{{ $invoice->amount }}</td>
                             <td>{{ $invoice->customer->name }}</td>
                             <td>{{ ucfirst($invoice->status) }}</td>
-                            <td>
-                                <a href="#" onclick="this.nextSibling.submit();">Send</a>
-                                <form action="{{ route('invoices.send', $invoice->id) }}" method="POST">
-                                    @csrf
-                                </form>
-                            </td>
                         </tr>
                     @empty
                         <tr>
